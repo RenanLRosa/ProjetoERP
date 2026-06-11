@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import com.xpto.ProjetoERP.Entity.Produto;
 import com.xpto.ProjetoERP.dto.ProdutoDTO;
@@ -27,7 +26,6 @@ public class ProdutoService {
         return listaDTO;
     }
 
-    @PostMapping
     public static boolean cadastrar(@RequestBody ProdutoDTO dto){
         System.out.println("Cadastrando Produto");
         Produto produto = new Produto(dto);
@@ -35,10 +33,29 @@ public class ProdutoService {
         return true;
     }
 
-    public boolean debitar(float qtd){
-        return true;
+    public boolean debitar(float qtd, String sku){
+        if (verificarSku(sku)){
+            lista.get
+
+            if(quantidadeEstoque < qtd){
+                System.err.println("Estoque insuficiente"); //Passar esse teste para o service
+                return false;
+            } else{
+                quantidadeEstoque = quantidadeEstoque - qtd; //Produto faz só isso
+                
+                return true;
+            }
+        }
     }
 
+    public static boolean verificarSku(String sku){
+        for (Produto produto : lista) {
+            if(produto.infos().getSku().equals(sku)){
+                return true; //Se achar o produto retorna true
+            }
+        }
+        return false; //Se não achar o produto retorna false
+    }
 
 
 }
