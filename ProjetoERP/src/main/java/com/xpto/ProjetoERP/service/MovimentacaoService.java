@@ -10,6 +10,7 @@ import com.xpto.ProjetoERP.Entity.MovimentacaoBaixa;
 import com.xpto.ProjetoERP.dto.ProdutoDTO;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
+import com.xpto.ProjetoERP.dto.PedidoMovimentacaoDTO;
 import com.xpto.ProjetoERP.dto.MovimentacaoDTO;
 
 
@@ -23,6 +24,7 @@ public class MovimentacaoService {
 
     public boolean debitar(@RequestBody PedidoMovimentacaoDTO dto){
         if (ProdutoService.VerificarDebitar(dto)){ 
+
             Movimentacao baixa = new MovimentacaoBaixa(dto);
 
         };
@@ -30,12 +32,8 @@ public class MovimentacaoService {
         return true;
     }
   
-    public boolean repor(String sku, float qtd){
+    public boolean repor(@RequestBody PedidoMovimentacaoDTO dto){
         return true;
-    }
-
-    private boolean verificarSku(String sku){
-        return ProdutoService.verificarSku(sku); 
     }
 
 }

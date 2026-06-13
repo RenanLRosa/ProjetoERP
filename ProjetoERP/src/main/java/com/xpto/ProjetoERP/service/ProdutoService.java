@@ -64,9 +64,4 @@ public class ProdutoService {
         return false;
     }
 
-    public static boolean verificarDisponibilidade(float qtd){ //Vai pra um utilitário depois
-
-
-    }
-
 }
