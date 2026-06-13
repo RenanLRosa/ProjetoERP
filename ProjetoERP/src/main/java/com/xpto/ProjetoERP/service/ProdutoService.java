@@ -33,12 +33,12 @@ public class ProdutoService {
         return true;
     }
 
-    public boolean debitar(float qtd, String sku){
+    public boolean VerificarDebitar(float qtd, String sku){
         if (verificarSku(sku)){
             lista.get
 
             if(quantidadeEstoque < qtd){
-                System.err.println("Estoque insuficiente"); //Passar esse teste para o service
+                System.err.println("Estoque insuficiente"); //Passar esse teste para o service -> diexar um static final nos movimentações e só puxar um utilitário de teste, que idnica com base nesse código o teste certo.
                 return false;
             } else{
                 quantidadeEstoque = quantidadeEstoque - qtd; //Produto faz só isso
@@ -48,14 +48,20 @@ public class ProdutoService {
         }
     }
 
-    public static boolean verificarSku(String sku){
+    /**Verifica o sku passado. 
+     * @return Retorna true se encontrar e false se não encontrar */  
+    public static boolean verificarSku(String sku){ //Vai pra um utilitário de teste
         for (Produto produto : lista) {
             if(produto.infos().getSku().equals(sku)){
-                return true; //Se achar o produto retorna true
+                return true;
             }
         }
-        return false; //Se não achar o produto retorna false
+        return false;
     }
 
+    public static boolean verificarDisponibilidade(float qtd){ //Vai pra um utilitário depois
+
+
+    }
 
 }

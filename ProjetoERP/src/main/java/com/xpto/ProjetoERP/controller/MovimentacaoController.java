@@ -28,12 +28,12 @@ public class MovimentacaoController {
     }
 
     @PostMapping
-    public boolean debitar(String sku){
-        service.debitar(sku);
+    public boolean debitar(MovimentacaoDTO dto){
+        return service.debitar(dto);
     }
 
     @PostMapping
-    public boolean repor(ProdutoDTO dto){
-        return ProdutoService.cadastrar(dto); 
+    public boolean repor(MovimentacaoDTO dto){
+        return service.repor(dto); 
     }
 }
