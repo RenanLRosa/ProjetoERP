@@ -1,5 +1,7 @@
 package com.xpto.ProjetoERP.Entity;
 
+import com.xpto.ProjetoERP.dto.MovimentacaoDTO;
+
 public interface Movimentacao {
-    boolean executar(float qtd);
+    MovimentacaoDTO executar();
 }

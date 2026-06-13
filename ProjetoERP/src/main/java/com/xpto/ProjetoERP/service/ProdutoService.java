@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.xpto.ProjetoERP.Entity.Produto;
 import com.xpto.ProjetoERP.dto.ProdutoDTO;
+import com.xpto.ProjetoERP.dto.PedidoMovimentacaoDTO;
+
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
@@ -33,9 +35,12 @@ public class ProdutoService {
         return true;
     }
 
-    public boolean VerificarDebitar(float qtd, String sku){
-        if (verificarSku(sku)){
-            lista.get
+    public boolean debitar(){
+        return true;
+    }
+
+    public boolean VerificarDebitar(PedidoMovimentacaoDTO dto){
+        if (verificarSku(dto.getSkuProduto())){
 
             if(quantidadeEstoque < qtd){
                 System.err.println("Estoque insuficiente"); //Passar esse teste para o service -> diexar um static final nos movimentações e só puxar um utilitário de teste, que idnica com base nesse código o teste certo.

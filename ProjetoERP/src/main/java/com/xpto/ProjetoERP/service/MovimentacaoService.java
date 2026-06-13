@@ -21,9 +21,10 @@ public class MovimentacaoService {
         return service.listar();
     }
 
-    public boolean debitar(@RequestBody MovimentacaoDTO dto){
-        if (ProdutoService.verificarDebitar()){ 
-            
+    public boolean debitar(@RequestBody PedidoMovimentacaoDTO dto){
+        if (ProdutoService.VerificarDebitar(dto)){ 
+            Movimentacao baixa = new MovimentacaoBaixa(dto);
+
         };
         
         return true;

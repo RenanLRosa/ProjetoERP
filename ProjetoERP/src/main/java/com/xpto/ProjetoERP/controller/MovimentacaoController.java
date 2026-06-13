@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.xpto.ProjetoERP.dto.MovimentacaoDTO;
+import com.xpto.ProjetoERP.dto.PedidoMovimentacaoDTO;
 import com.xpto.ProjetoERP.dto.ProdutoDTO;
 import com.xpto.ProjetoERP.service.MovimentacaoService;
 import com.xpto.ProjetoERP.service.ProdutoService;
@@ -28,12 +28,12 @@ public class MovimentacaoController {
     }
 
     @PostMapping
-    public boolean debitar(MovimentacaoDTO dto){
+    public boolean debitar(PedidoMovimentacaoDTO dto){
         return service.debitar(dto);
     }
 
     @PostMapping
-    public boolean repor(MovimentacaoDTO dto){
+    public boolean repor(PedidoMovimentacaoDTO dto){
         return service.repor(dto); 
     }
 }

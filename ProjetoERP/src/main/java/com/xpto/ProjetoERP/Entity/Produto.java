@@ -23,14 +23,7 @@ public class Produto {
         return dto;
     }
 
-    public boolean debitar(float qtd){
-        if(quantidadeEstoque < qtd){
-            System.err.println("Estoque insuficiente"); //Passar esse teste para o service
-            return false;
-        } else{
-            quantidadeEstoque = quantidadeEstoque - qtd; //Produto faz só isso
-            
-            return true;
-        }
+    public void debitar(float qtd){
+        quantidadeEstoque = quantidadeEstoque - qtd; 
     }
 }
