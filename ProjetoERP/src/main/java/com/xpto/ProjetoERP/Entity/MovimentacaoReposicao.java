@@ -4,7 +4,7 @@ import com.xpto.ProjetoERP.dto.MovimentacaoDTO;
 import com.xpto.ProjetoERP.dto.PedidoMovimentacaoDTO;
 import com.xpto.ProjetoERP.Utilitarios.GeradorIdMovimentacao;
 
-public class MovimentacaoBaixa implements Movimentacao{    
+public class MovimentacaoReposicao implements Movimentacao{    
     private String skuProduto;
     private float qtd;
     private int idMovimentacao;
@@ -12,7 +12,7 @@ public class MovimentacaoBaixa implements Movimentacao{
     private Produto produto;
 
 
-    public MovimentacaoBaixa(PedidoMovimentacaoDTO dto, Produto produto){
+    public MovimentacaoReposicao(PedidoMovimentacaoDTO dto, Produto produto){
         this.skuProduto = dto.getSkuProduto();
         this.qtd = dto.getQuantidade();
         this.idMovimentacao = GeradorIdMovimentacao.gerarId();
@@ -22,11 +22,10 @@ public class MovimentacaoBaixa implements Movimentacao{
 
     @Override
     public MovimentacaoDTO executar() {
-        produto.debitar(qtd);
+        produto.repor(qtd);
 
         return new MovimentacaoDTO(skuProduto, data, qtd, idMovimentacao);
 
     }
 
 }
-

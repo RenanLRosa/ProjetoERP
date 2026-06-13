@@ -26,4 +26,8 @@ public class Produto {
     public void debitar(float qtd){
         quantidadeEstoque = quantidadeEstoque - qtd; 
     }
+
+    public void repor(float qtd){
+        quantidadeEstoque = quantidadeEstoque + qtd;
+    }
 }
