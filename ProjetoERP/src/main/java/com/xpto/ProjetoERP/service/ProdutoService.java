@@ -9,7 +9,6 @@ import com.xpto.ProjetoERP.Entity.Produto;
 import com.xpto.ProjetoERP.dto.PedidoMovimentacaoDTO;
 import com.xpto.ProjetoERP.dto.ProdutoDTO;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 
 @Service
@@ -27,7 +26,7 @@ public class ProdutoService {
         return listaDTO;
     }
 
-    public static boolean cadastrar(@RequestBody ProdutoDTO dto){
+    public static boolean cadastrar(ProdutoDTO dto){
         System.out.println("Cadastrando Produto");
         Produto produto = new Produto(dto);
         lista.add(produto);

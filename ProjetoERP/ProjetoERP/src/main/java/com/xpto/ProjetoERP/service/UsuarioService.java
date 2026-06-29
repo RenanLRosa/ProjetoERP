@@ -4,31 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
+import com.xpto.ProjetoERP.Entity.Usuario;
+import com.xpto.ProjetoERP.Repository.UsuarioRepository;
 import com.xpto.ProjetoERP.dto.UsuarioDTO;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class UsuarioService {
+
+    private final UsuarioRepository repository;
 
     public List<UsuarioDTO> listar(){
         List<UsuarioDTO> lista = new ArrayList<>();
-        
-        UsuarioDTO user1 = new UsuarioDTO();
-        user1.setId(1);
-        user1.setLogin("login");
-        user1.setNome("Renan");
-        user1.setSenha("senha");
 
-        lista.add(user1);
-        
+        for (Usuario usuario : repository.findAll()) {
+            lista.add(usuario.infos());
+        }
+
         return lista;
     }
 
-    
-    @PostMapping
     public boolean salvar(UsuarioDTO dto){
-        System.out.println("Salvando Usuário");
+        Usuario usuario = new Usuario(dto);
+        repository.save(usuario);
         return true;
     }
 

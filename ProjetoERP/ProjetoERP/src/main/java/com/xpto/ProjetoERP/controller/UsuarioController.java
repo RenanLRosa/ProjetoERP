@@ -8,26 +8,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.xpto.ProjetoERP.dto.ProdutoDTO;
-import com.xpto.ProjetoERP.service.ProdutoService;
+import com.xpto.ProjetoERP.dto.UsuarioDTO;
+import com.xpto.ProjetoERP.service.UsuarioService;
 
 import lombok.RequiredArgsConstructor;
 
-@RequestMapping("/produtos")
+@RequestMapping("/usuarios")
 @RestController
 @RequiredArgsConstructor
 
-public class ProdutoControler {
-    private final ProdutoService service;
+public class UsuarioController {
+    private final UsuarioService service;
 
     @GetMapping
-    public List<ProdutoDTO> listar(){
+    public List<UsuarioDTO> listar(){
         return service.listar();
     }
 
     @PostMapping
-    public boolean cadastrar(@RequestBody ProdutoDTO dto){
-        return ProdutoService.cadastrar(dto); 
+    public boolean salvar(@RequestBody UsuarioDTO dto){
+        return service.salvar(dto); 
     }
-
 }
+ 
