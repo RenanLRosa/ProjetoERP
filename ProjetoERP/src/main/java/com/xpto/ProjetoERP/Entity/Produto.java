@@ -1,13 +1,26 @@
 package com.xpto.ProjetoERP.Entity;
 
+
 import com.xpto.ProjetoERP.dto.ProdutoDTO;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+
+@Entity
+@Table(name = "produto")
 public class Produto {
+    @Id
     private String sku;
+    
     private String nome;
     private float valorUnitario;
     private String dataCadastro;
     private float quantidadeEstoque;
+
+    protected Produto(){
+    }
 
     public Produto(ProdutoDTO dto) {
         this.sku = dto.getSku();

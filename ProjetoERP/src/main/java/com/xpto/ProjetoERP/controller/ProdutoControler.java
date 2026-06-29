@@ -27,7 +27,7 @@ public class ProdutoControler {
 
     @PostMapping
     public boolean cadastrar(@RequestBody ProdutoDTO dto){
-        return ProdutoService.cadastrar(dto); 
+        return service.cadastrar(dto); 
     }
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +26,7 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public boolean salvar(UsuarioDTO dto){
+    public boolean salvar(@RequestBody UsuarioDTO dto){
         return service.salvar(dto); 
     }
 }
